@@ -32,7 +32,7 @@ violation_file_url = "https://raw.githubusercontent.com/hoangnguyenhung1998/chec
 # -----------------
 
 # Access Token của Facebook API
-ACCESS_TOKEN = "EAAFOwkjZA7ZAIBOwRGPqbkaHN96yCdR57Kb7Ll6hPDkJPfDDe0nCEBfgGm5X3JNc2ndBCrT5GecVh35ZCZBCV9IrzS2bPqJT67M3s5oQ9qJ2t0vjf3WINAZAOHCZC69SvVdvqWcTnRC4enprWJo0g8Xq6hZBW0og0ZCpRR7RmnZCHc3ad76j2VEZAeez5un2w1cOWcRsZA0yTj5HCBe04gx0AZDZD"  # Thay YOUR_FACEBOOK_ACCESS_TOKEN bằng Access Token thực tế
+ACCESS_TOKEN = "EAAFOwkjZA7ZAIBO5keO2G5ED6lwQrVnK7kCQOtrcS2pYPe1FJ5M5R6MziiyZC8BC8gE1MQFHzp36a9RUtVEcPPYuRFbsqdUZBOgEzqZBNH7BTZAAWfZBJZBo8C4Q0Vh3dikL1gIXTXqwJZCbKhe79vmhD4Lve11B9os18Hp2keZAiRxau8IcXesK3lBLm1JZBDZAmk9YCgZCJha4AiitQvoLYyAZDZD"  # Thay YOUR_FACEBOOK_ACCESS_TOKEN bằng Access Token thực tế
 
 # Hàm kiểm tra ảnh qua Facebook API
 def check_image_with_facebook_api(image_url):
