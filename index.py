@@ -1,18 +1,20 @@
 import json
+import requests
 import streamlit as st
 
-# Hàm tải danh sách từ khóa từ file JSON
-def load_violation_keywords(file_path):
-    """Tải danh sách từ khóa vi phạm từ file JSON."""
+# Hàm tải danh sách từ khóa từ URL JSON
+def load_violation_keywords(file_url):
+    """Tải danh sách từ khóa vi phạm từ URL JSON."""
     try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            data = json.load(file)
-        return data.get("keywords", [])
-    except FileNotFoundError:
-        st.error(f"File {file_path} không tồn tại.")
-        return []
-    except json.JSONDecodeError:
-        st.error("Lỗi khi đọc file JSON.")
+        response = requests.get(file_url)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get("keywords", [])
+        else:
+            st.error(f"Lỗi khi tải file JSON từ URL: {response.status_code}")
+            return []
+    except Exception as e:
+        st.error(f"Lỗi khi đọc file JSON từ URL: {e}")
         return []
 
 # Hàm kiểm tra nội dung nhập vào
@@ -24,8 +26,8 @@ def check_content_violation(content, keywords):
     else:
         return {"status": "safe", "violated_keywords": []}
 
-# Đường dẫn đến file JSON
-violation_file_path = "https://raw.githubusercontent.com/hoangnguyenhung1998/checkpolicyfb/main/full_facebook_policy_keywords.json"
+# URL tới file JSON trên GitHub
+violation_file_url = "https://raw.githubusercontent.com/hoangnguyenhung1998/checkpolicyfb/main/full_facebook_policy_keywords.json"
 
 # Giao diện Streamlit
 st.title("Kiểm tra Nội dung Quảng cáo Facebook")
@@ -34,7 +36,7 @@ st.title("Kiểm tra Nội dung Quảng cáo Facebook")
 content_to_check = st.text_area("Nhập nội dung cần kiểm tra:", "")
 
 # Tải danh sách từ khóa vi phạm
-keywords = load_violation_keywords(violation_file_path)
+keywords = load_violation_keywords(violation_file_url)
 
 # Nút kiểm tra
 if st.button("Kiểm tra nội dung"):
