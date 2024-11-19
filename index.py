@@ -50,3 +50,5 @@ if st.button("Kiểm tra nội dung"):
             st.write(", ".join(result["violated_keywords"]))
         else:
             st.success("Nội dung an toàn, không vi phạm chính sách.")
+
+st.warning("Copyright by Bố Đậu Đậu")
