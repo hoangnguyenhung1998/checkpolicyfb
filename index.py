@@ -78,6 +78,19 @@ keywords = load_violation_keywords(violation_file_url)
 # Upload file ảnh
 uploaded_file = st.file_uploader("Tải ảnh lên để kiểm tra:", type=["jpg", "jpeg", "png"])
 
+# Nút kiểm tra
+if st.button("Kiểm tra nội dung"):
+    if not content_to_check.strip():
+        st.warning("Vui lòng nhập nội dung để kiểm tra!")
+    else:
+        # Kiểm tra nội dung
+        result = check_content_violation(content_to_check, keywords)
+        if result["status"] == "violation":
+            st.error("Nội dung vi phạm các từ khóa sau:")
+            st.write(", ".join(result["violated_keywords"]))
+        else:
+            st.success("Nội dung an toàn, không vi phạm chính sách.")
+st.markdown("---")
 # Kiểm tra ảnh
 if st.button("Kiểm tra ảnh"):
     if not uploaded_file:
@@ -92,19 +105,6 @@ if st.button("Kiểm tra ảnh"):
         else:
             st.error(result["message"])
             
-# Nút kiểm tra
-if st.button("Kiểm tra nội dung"):
-    if not content_to_check.strip():
-        st.warning("Vui lòng nhập nội dung để kiểm tra!")
-    else:
-        # Kiểm tra nội dung
-        result = check_content_violation(content_to_check, keywords)
-        if result["status"] == "violation":
-            st.error("Nội dung vi phạm các từ khóa sau:")
-            st.write(", ".join(result["violated_keywords"]))
-        else:
-            st.success("Nội dung an toàn, không vi phạm chính sách.")
-
 # Thêm Footer
 st.markdown("---")
 st.markdown("<center>Copyright by Bố Đậu Đậu</center>", unsafe_allow_html=True)
