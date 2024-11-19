@@ -75,9 +75,6 @@ content_to_check = st.text_area("Nhập nội dung cần kiểm tra:", "")
 # Tải danh sách từ khóa vi phạm
 keywords = load_violation_keywords(violation_file_url)
 
-# Upload file ảnh
-uploaded_file = st.file_uploader("Tải ảnh lên để kiểm tra:", type=["jpg", "jpeg", "png"])
-
 # Nút kiểm tra
 if st.button("Kiểm tra nội dung"):
     if not content_to_check.strip():
@@ -91,6 +88,10 @@ if st.button("Kiểm tra nội dung"):
         else:
             st.success("Nội dung an toàn, không vi phạm chính sách.")
 st.markdown("---")
+
+# Upload file ảnh
+uploaded_file = st.file_uploader("Tải ảnh lên để kiểm tra:", type=["jpg", "jpeg", "png"])
+
 # Kiểm tra ảnh
 if st.button("Kiểm tra ảnh"):
     if not uploaded_file:
