@@ -37,7 +37,7 @@ ACCESS_TOKEN = "EAAFOwkjZA7ZAIBOwRGPqbkaHN96yCdR57Kb7Ll6hPDkJPfDDe0nCEBfgGm5X3JN
 # Hàm kiểm tra ảnh qua Facebook API
 def check_image_with_facebook_api(image_url):
     """Kiểm tra tỷ lệ text/hình ảnh qua Facebook API."""
-    api_url = "https://graph.facebook.com/v17.0/adimages"
+    api_url = "https://graph.facebook.com/v21.0/act_724421371810325/adimages"
     params = {"access_token": ACCESS_TOKEN}
     data = {"url": image_url}
     try:
