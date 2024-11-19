@@ -25,7 +25,7 @@ def check_content_violation(content, keywords):
         return {"status": "safe", "violated_keywords": []}
 
 # Đường dẫn đến file JSON
-violation_file_path = "https://github.com/hoangnguyenhung1998/checkpolicyfb/blob/main/full_facebook_policy_keywords.json"
+violation_file_path = "https://raw.githubusercontent.com/hoangnguyenhung1998/checkpolicyfb/refs/heads/main/full_facebook_policy_keywords.json"
 
 # Giao diện Streamlit
 st.title("Kiểm tra Nội dung Quảng cáo Facebook")
