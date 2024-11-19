@@ -51,4 +51,7 @@ if st.button("Kiểm tra nội dung"):
         else:
             st.success("Nội dung an toàn, không vi phạm chính sách.")
 
-st.warning("Copyright by Bố Đậu Đậu")
+# Thêm Footer
+st.markdown("---")
+st.markdown("<center>Copyright by Bố Đậu Đậu</center>", unsafe_allow_html=True)
+
